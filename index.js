@@ -53,6 +53,10 @@ dotenv.config({ path: 'config.env' });
 // listening to port
 const PORT = process.env.PORT || 8000
 
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
 app.listen(PORT, () => {
   console.log(`Server connected to port ${PORT}`)
 })
