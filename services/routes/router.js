@@ -51,7 +51,7 @@ const uploadFields = upload.fields([
 
 
 // HOME ROUTE
-route.get("/", indexController.showLatestItems);
+route.get("/", trackVisitors, indexController.showLatestItems);
 
 // NAVBAR ITEMS ROUTES
   // school profile
@@ -81,7 +81,6 @@ route.get("/logout", loginController.logoutUser)
 route.post('/logout', loginController.logoutUser);
 
 // TRACK VISITORS ROUTE
-route.get("/", trackVisitors, indexController.showLatestItems);
 route.get("/extracurricular", trackVisitors, ekskulController.showAllExtracurricular);
 route.get("/gallery", trackVisitors, galeriController.showAllGallery);
 route.get("/news", trackVisitors, beritaController.showAllNews);
