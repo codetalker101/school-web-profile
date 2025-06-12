@@ -57,21 +57,21 @@ route.get("/", trackVisitors, indexController.showLatestItems);
   // school profile
 route.get("/showSingleProfile/:id", profileController.showSingleProfile);
   // extracurricular 
-route.get("/extracurricular", ekskulController.showAllExtracurricular);
+route.get("/extracurricular", trackVisitors, ekskulController.showAllExtracurricular);
 route.get("/showSingleExtracurricular/:id", ekskulController.showSingleExtracurricular);
   // gallery 
-route.get("/gallery", galeriController.showAllGallery);
+route.get("/gallery", trackVisitors, galeriController.showAllGallery);
   // news 
-route.get("/news", beritaController.showAllNews);
+route.get("/news", trackVisitors, beritaController.showAllNews);
 route.get("/showSingleNews/:id", beritaController.showSingleNews);
   // contact
-route.get("/contact", renders.contact)
+route.get("/contact", trackVisitors, renders.contact);
 
 // TOPBAR ROUTES 
   // teachers / guru-guru
-route.get("/teacher", guruController.showAllTeachers);
+route.get("/teacher", trackVisitors, guruController.showAllTeachers);
   // announcements / pengumuman 
-route.get("/announcements", pengumumanController.showAllAnnouncements);
+route.get("/announcements", trackVisitors, pengumumanController.showAllAnnouncements);
 route.get("/showSingleAnnouncement/:id", pengumumanController.showSingleAnnouncement);
 
 // LOGIN/LOGOUT ROUTE
@@ -79,14 +79,6 @@ route.get("/login", loginController.loginUser);
 route.post("/login", loginController.loginUser);
 route.get("/logout", loginController.logoutUser)
 route.post('/logout', loginController.logoutUser);
-
-// TRACK VISITORS ROUTE
-route.get("/extracurricular", trackVisitors, ekskulController.showAllExtracurricular);
-route.get("/gallery", trackVisitors, galeriController.showAllGallery);
-route.get("/news", trackVisitors, beritaController.showAllNews);
-route.get("/contact", trackVisitors, renders.contact);
-route.get("/teacher", trackVisitors, guruController.showAllTeachers);
-route.get("/announcements", trackVisitors, pengumumanController.showAllAnnouncements);
 
 // ADMINISTRATION DASHBOARD ROUTES (admin)
 route.get('/administrationDashboard', isAuthenticated, authorizeRole('admin', 'employee'), admDashboard.administrationDashboard);
