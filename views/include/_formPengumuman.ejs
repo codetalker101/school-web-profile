@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Form Pengumuman</div>
+      </div>
+      <div class="card-body">
+        <form action="/createPengumuman" method="POST" enctype="multipart/form-data" onsubmit="return preparePengumumanSubmit()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="pengumuman_file">File Pengumuman</label><br>
+                <input
+                  type="file"
+                  class="form-control-file"
+                  id="pengumuman_file"
+                  name="pengumuman_file"
+                /><br>
+                <small style="color: gray; font-size: 0.85rem;">*Max file size: 2 MB</small></br></br>
+
+                <label for="judul">Nama Pengumuman</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="judul"
+                  name="judul"
+                  placeholder="Masukan judul pengumuman.."
+                  required
+                /><br>
+                
+                <label for="tanggal">Tanggal</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="tanggal"
+                  name="tanggal"
+                  required
+                /><br>
+                
+                <!-- Keterangan textarea -->
+                <label for="keterangan">Tentang Pengumuman</label>
+                <!-- Quill Editor -->
+                <div id="editor-pengumuman"></div>
+                <!-- Hidden input to store Quill content -->
+                <input type="hidden" name="keterangan" id="keteranganpengumuman" /></br></br>
+
+              </div><br>
+              <div class="card-action">
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-danger">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

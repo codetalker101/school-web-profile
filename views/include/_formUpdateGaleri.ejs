@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Form Gallery</div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <form action="/updateGaleri/<%= galeri.galeri_id %>" method="POST" enctype="multipart/form-data">
+                <!-- Short Description Field -->
+                <label for="judul">Keterangan Singkat Foto</label>
+                <input
+                  type="text"
+                  class="form-control form-control"
+                  id="judul"
+                  name="judul"
+                  value="<%= galeri.judul %>"
+                  placeholder="Masukkan keterangan singkat dari foto di bawah.."
+                />
+                </br>
+                
+                <!-- Existing Image Preview -->
+                <% if (galeri.galeriimg) { %>
+                  <label for="existingImage">Foto Saat Ini</label></br>
+                  <img
+                    src="/uploads/<%= galeri.galeriimg %>"
+                    alt="Existing Image"
+                    width="150"
+                  />
+                </br></br>
+                <% } %>
+                
+                <!-- New Image Upload -->
+                <label for="image">Foto Baru</label></br>
+                <input type="file" class="form-control-file" id="image" name="image" /></br>
+                <small style="color: gray; font-size: 0.85rem;">*Max file size: 2 MB</small></br></br>
+                
+                <!-- Submit Button -->
+                <button class="btn btn-success" type="submit">Submit</button>
+
+                <!-- Cancel Button with Role-Based Redirect -->
+                <a href="/galeri" >
+                  <button class="btn btn-danger" type="button">Cancel</button>
+                </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+

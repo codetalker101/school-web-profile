@@ -1,0 +1,62 @@
+<div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title">Form Users</div>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <form action="/createUser" method="POST">
+                            <label for="username">Username</label>
+                            <input
+                              type="text"
+                              class="form-control form-control"
+                              id="username"
+                              name="username"
+                              placeholder="Masukan Username.."
+                              required
+                            /></br>
+                            <label for="name">Nama</label>
+                            <input
+                              type="text"
+                              class="form-control form-control"
+                              id="name"
+                              name="name"
+                              placeholder="Masukan nama lengkap.."
+                              required
+                            /></br>
+                            <label for="notlp">No Tlp</label>
+                            <input
+                              type="text"
+                              class="form-control form-control"
+                              id="notlp"
+                              name="notlp"
+                              placeholder="Masukan no telephone / whatsapp.."
+                              required
+                            /></br>
+                            <label for="role">Hak Akses</label>
+                            <select name="role" id="role">
+                              <option value="admin">Admin</option>
+                              <option value="employee">Pegawai</option>
+                            </select></br>
+                            <label for="largeinput">Password</label>
+                            <input
+                              type="password"
+                              class="form-control form-control"
+                              id="password"
+                              name="password"
+                              placeholder="Masukan password.."
+                              required
+                            /></br>
+                            <button class="btn btn-success" type="submit">Submit</button>
+                            <button class="btn btn-danger">Cancel</button>
+                          </form>
+                        </div></br>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+            </div>

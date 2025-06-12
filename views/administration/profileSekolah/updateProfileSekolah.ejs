@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Update Profile Sekolah - Admin Dashboard</title>
+    <meta
+    content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    name="viewport"
+  />
+    <link
+    rel="icon"
+    href="../img/kaiadmin/favicon.ico"
+    type="image/x-icon"
+  />
+
+    <!-- Fonts and icons -->
+    <script src="../js/plugin/webfont/webfont.min.js"></script>
+    <script>
+    WebFont.load({
+      google: { families: ["Public Sans:300,400,500,600,700"] },
+      custom: {
+        families: [
+          "Font Awesome 5 Solid",
+          "Font Awesome 5 Regular",
+          "Font Awesome 5 Brands",
+          "simple-line-icons",
+        ],
+        urls: ["../css/fonts.min.css"],
+      },
+      active: function () {
+        sessionStorage.fonts = true;
+      },
+    });
+    </script>
+
+    <!-- Quilljs -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/plugins.min.css" />
+    <link rel="stylesheet" href="../css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="../css/stylequilljs.css" />
+
+    <style>  
+    .alert {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .alert-error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    } 
+    </style>
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <!-- INCLUDE ADMIN SIDEBAR -->
+      <% if (role === 'admin') { %>
+        <%- include("../../include/_adminSidebar.ejs") %>
+      <% } else if (role === 'employee') { %>
+        <%- include("../../include/_employeeSidebar.ejs") %>
+      <% } %>
+      <!-- INCLUDE ADMIN SIDEBAR -->
+
+
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark">
+              <a href="/administrationDashboard" class="logo">
+                <img
+                src="../img/kaiadmin/logo_light.svg"
+                alt="navbar brand"
+                class="navbar-brand"
+              />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                  <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                  <i class="gg-menu-left"></i>
+                </button>
+              </div>
+              <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+              </button>
+            </div>
+            <!-- End Logo Header -->
+          </div>
+          <!-- Navbar Header -->
+
+          <!-- INCLUDE ADMIN NAVBAR -->
+          <%- include("../../include/_administrationNavbar.ejs") %>
+          <!-- /INCLUDE ADMIN NAVBAR -->
+
+          <!-- End Navbar -->
+        </div>
+
+        <div class="container">
+          <div class="page-inner">
+            <div class="page-header">
+              <h3 class="fw-bold mb-3">Profile Madrasah</h3>
+              <ul class="breadcrumbs mb-3">
+                <li class="nav-home">
+                  <a href="/administrationDashboard">
+                    <i class="icon-home"></i>
+                  </a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="/updateProfileSekolah/<%= profile.profile_id %>">Update Profile Madrasah</a>
+                </li>
+              </ul>
+            </div> 
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title">Form Profile Madrasah</div>
+                  </div>
+
+                  <% if (typeof message !== 'undefined' && message) { %>  
+                  <div class="alert <%= success ? 'alert-success' : 'alert-error' %>">
+                    <%= message %>
+                  </div>
+                  <% } %>
+
+                  <!-- INCLUDE FORM PROFILE SEKOLAH-->
+                  <%- include('../../include/_formUpdateProfileSekolah.ejs') %>
+                  <!-- /INCLUDE FORM PROFILE SEKOLAH-->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        
+        <!-- INCLUDE FOOTER -->
+        <%- include('../../include/_administrationFooter.ejs') %>
+        <!-- /INCLUDE FOOTER -->
+         
+      </div>
+    </div>
+
+    <!--   Core JS Files   -->
+    <script src="../js/core/jquery-3.7.1.min.js"></script>
+    <script src="../js/core/popper.min.js"></script>
+    <script src="../js/core/bootstrap.min.js"></script>
+
+    <!-- Quilljs -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+    <!-- Quilljs editor script -->
+    <script src="../js/quilljs.js"></script>
+    
+    <!-- jQuery Scrollbar -->
+    <script src="../js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="../js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="../js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <script src="../js/plugin/chart-circle/circles.min.js"></script>
+
+    <!-- Datatables -->
+    <script src="../js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="../js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="../js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="../js/plugin/jsvectormap/world.js"></script>
+
+    <!-- Google Maps Plugin -->
+    <script src="../js/plugin/gmaps/gmaps.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="../js/plugin/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Kaiadmin JS -->
+    <script src="../js/kaiadmin.min.js"></script>
+  </body>
+</html>

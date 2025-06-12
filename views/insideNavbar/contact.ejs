@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hubungi Kami - MI Al IKHLAS</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="plugins/animate/animate.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="plugins/aos/aos.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="plugins/venobox/venobox.css">
+    <!-- for map purpose -->   
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Main Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="fixed-top header">
+      <!-- top header -->
+
+      <!-- INCLUDE TOP HEADER -->
+      <%- include("../include/_topheader.ejs") %>  
+
+      <!-- navbar -->
+      <div class="navigation w-100">
+        <div class="container">
+
+          <!-- INCLUDE NAVBAR -->
+          <%- include("../include/_navbar.ejs") %>
+
+        </div>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <!-- Login Modal -->
+
+    <!-- INCLUDE LOGIN MODAL -->
+    <%- include("../include/_login.ejs") %>
+
+
+    <!-- page title -->
+    <section class="page-title-section overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <ul class="list-inline custom-breadcrumb">
+              <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="/contact">Hubungi Kami</a></li>
+              <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /page title -->
+
+    <!-- contact -->
+    <section class="section bg-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="section-title">Kontak</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-7 mb-4 mb-lg-0">
+            <a href="https://wa.me/6285227402442" class="text-color h5 d-block">Bu Dewi: +6285227402442</a>
+            <a href="https://wa.me/6285726434972" class="text-color h5 d-block">Bu Puput: +6285726434972</a></br>
+            <a href="mailto:mialikhlaskarpuc1@gmail.com" class="mb-5 text-color h5 d-block">mialikhlaskarpuc1@gmail.com</a>
+            <p>Jl. Pembina No.2 Karangpucung Kec. Purwokerto Selatan. <br>Kabupaten Banyumas, Jawa Tengah 53142, Indonesia</p>
+          </div>
+          <div class="col-lg-5">
+            <p class="mb-5"><strong>Apakah anda memiliki pertanyaan? silahkan untuk mengajukan pertanyaan melalui nomor Whatsapp atau alamat Email disamping, atau bisa dengan cara langsung meng-klik nomor atau email disamping!</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /contact -->
+
+    <!-- gmap -->
+    <section class="section pt-0">
+      <!-- Google Map -->
+      <div id="map" style="height: 500px"></div>
+    </section>
+    <!-- /gmap -->
+
+    <!-- footer -->
+
+    <!-- INCLUDE FOOTER -->
+    <%- include("../include/_footer.ejs") %>
+
+    <!-- /footer -->
+
+    <!-- OpenStreetMap(OSM) -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      const map = L.map('map').setView([-7.443710,109.235105], 14);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      const marker = L.marker([-7.443710,109.235105], 14).addTo(map);
+      marker.bindPopup("MI AL IKHLAS KARANGPUCUNG").openPopup();
+    </script>
+    <!-- jQuery -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- aos -->
+    <script src="plugins/aos/aos.js"></script>
+    <!-- venobox popup -->
+    <script src="plugins/venobox/venobox.min.js"></script>
+    <!-- mixitup filter -->
+    <script src="plugins/mixitup/mixitup.min.js"></script>
+    <!-- google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+
+  </body>
+</html>

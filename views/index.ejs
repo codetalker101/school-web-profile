@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page - MI AL IKHLAS</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="plugins/animate/animate.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="plugins/aos/aos.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+    <!-- Main Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!--  gallery images modal -->
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="fixed-top header">
+      <!-- top header -->
+
+      <!-- INCLUDE TOP HEADER -->
+      <%- include("../views/include/_topheader.ejs") %>
+
+      <!-- navbar -->
+      <div class="navigation w-100">
+        <div class="container">
+
+          <!-- INCLUDE NAVBAR -->
+          <%- include("../views/include/_navbar.ejs") %>
+
+        </div>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <!-- Login Modal -->
+
+    <!-- INCLUDE LOGIN MODAL -->
+    <%- include("../views/include/_login.ejs") %>
+
+    <!-- /INCLUDE LOGIN MODAL -->
+
+    <!-- Welcome page -->
+    <section class="hero-section overlay bg-cover" data-background="images/banner/malaysiaStudytour.jpg">
+      <div class="container">
+        <div class="hero-slider-item">
+          <div class="row">
+            <div class="col-md-8">
+              <h1 class="text-white">Selamat Datang di Website Resmi MI AL IKHLAS</h1>
+              <p class="text-muted mb-4" >
+                Membangun masa depan melalui pendidikan, </br>
+                Ilmu pengetahuan sebagai kunci, Pendidikan sebagai jalan
+              </p>
+              <a href="/showSingleProfile/13" class="btn btn-primary">Tentang MI AL IKHLAS</a>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </section>
+    <!-- /Welcome page -->
+
+    <!-- headmaster greeting -->
+    <section class="section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 order-2 order-md-1">
+            <h2 class="section-title">Sambutan Kepala Madrasah</h2>
+            <h4><em>Yoyon Suwastiono Subari, S.Ag</em></h4>
+            <p>Assalamu’alaikum Warahmatullahi Wabarakatuh,<br><br>
+              Puji syukur kita panjatkan ke hadirat Allah SWT atas segala rahmat-Nya. Saya, Yoyon Suwastiono Subari, S.Ag, selaku Kepala Madrasah MI Al Ikhlas Karangpucung, mengajak seluruh orang tua dan masyarakat untuk bersama-sama membina generasi yang cerdas, beriman, dan berakhlakul karimah.<br><br>
+              Melalui pendidikan yang terpadu antara ilmu umum dan ilmu agama, kami berkomitmen menciptakan lingkungan belajar yang Islami, nyaman, dan berkualitas.<br><br>
+              Mari kita bergandengan tangan demi masa depan anak-anak kita yang lebih baik.<br>
+              Wassalamu’alaikum Warahmatullahi Wabarakatuh.<br><br>
+              Hormat saya,<br>Yoyon Suwastiono Subari, S.Ag<br><br>Kepala Madrasah MI Al Ikhlas Karangpucung</p>
+          </div>
+          <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+            <img class="img-fluid w-100" src="images/about/blankProfile.webp" alt="about image">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /headmaster greeting -->
+
+    <!-- latest news -->
+    <section class="section pt-0">
+      <div class="container">
+        <!-- News Section -->
+        <div class="row">
+          <div class="col-12">
+            <div class="d-flex align-items-center section-title justify-content-between">
+              <h2 class="mb-0 text-nowrap mr-3">Berita Terbaru</h2>
+              <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+              <div>
+                <!-- See All Button for Desktop -->
+                <a href="/news" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">Lihat semua</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <% if (beritaList && beritaList.length > 0) { %>
+        <div class="row justify-content-center">
+          <% beritaList.forEach(berita => { %>
+          <!-- Blog Post -->
+          <article class="col-lg-4 col-sm-6 mb-5">
+            <div class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
+              <img class="card-img-top rounded-0 pics-thumbnail" src="/uploads/<%= berita.beritaimg %>" width="100" height="300" alt="<%= berita.judul %>">
+              <div class="card-body">
+                <!-- Post Meta -->
+                <ul class="list-inline mb-3">
+                  <!-- Post Date -->
+                  <li class="list-inline-item mr-3 ml-0"><%= berita.formattedDate %></li>
+                </ul>
+                <a href="/showSingleNews/<%= berita.berita_id %>">
+                  <h4 class="card-title"><%= berita.judul %></h4>
+                </a>
+                <p class="card-text">
+                  <%- berita.shortDesc %>
+                </p>
+                <a href="/showSingleNews/<%= berita.berita_id %>" class="btn btn-primary btn-sm">lanjut baca</a>
+              </div>
+            </div>
+          </article>
+          <% }) %>
+        </div>
+        <% } else { %>
+        <!-- No News Found -->
+        <p class="text-center">No berita activities found.</p>
+        <% } %>
+
+        <!-- Mobile See All Button -->
+        <div class="row">
+          <div class="col-12 text-center">
+            <a href="/news" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">Lihat Semua</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /blog -->
+
+    <!-- newest gallery items -->
+    <section class="section bg-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="d-flex align-items-center section-title justify-content-between">
+              <h2 class="mb-0 text-nowrap mr-3">Gallery Sekolah</h2>
+              <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+              <div>
+                <!-- See All Button for Desktop -->
+                <a href="/gallery" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">Lihat Semua</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <% if (galleryList && galleryList.length > 0) { %>
+        <div class="row justify-content-center">
+          <% galleryList.forEach(gallery => { %>
+          <!-- Gallery Item -->
+          <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+            <div class="card border-0 rounded-0 hover-shadow">
+              <div class="card-img position-relative">
+                <img class="card-img-top rounded-0 gallery-item pics-thumbnail" src="/uploads/<%= gallery.galeriimg %>" alt="<%= gallery.judul %>">
+              </div>
+              <div class="card-body">
+                <h4 class="card-title"><%= gallery.judul %></h4>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <% } else { %>
+        <!-- No Gallery Found -->
+        <p class="text-center">No gallery items found.</p>
+        <% } %>
+
+        <!-- See All Button -->
+        <div class="row">
+          <div class="col-12 text-center">
+            <a href="/gallery" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">Lihat Semua</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /newest gallery items -->
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+      <span class="close" id="closeModal">&times;</span>
+      <img class="modal-content" id="modalImage" alt="Gallery Image">
+    </div>
+
+    <!-- footer -->
+
+    <!-- INCLUDE FOOTER -->
+    <%- include("../views/include/_footer.ejs") %>
+
+    <!-- /footer -->
+
+    <!-- jQuery -->
+
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- aos -->
+    <script src="plugins/aos/aos.js"></script>
+    <!-- venobox popup -->
+    <script src="plugins/venobox/venobox.min.js"></script>
+    <!-- mixitup filter -->
+    <script src="plugins/mixitup/mixitup.min.js"></script>
+    <!-- google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+
+    <!-- script for modal (login and images) -->
+    <script>
+    // Automatically open the login modal if there's an error
+    if (typeof showLoginModal !== 'undefined' && showLoginModal) {
+      $(document).ready(function () {
+        $('#loginModal').modal('show');
+      });
+    }
+    // Wait for the DOM to load
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get modal element
+      var modal = document.getElementById("imageModal");
+
+      // Get modal image element
+      var modalImg = document.getElementById("modalImage");
+
+      // Get all images in the gallery (with 'gallery-item' class)
+      var galleryImages = document.querySelectorAll('.gallery-item');
+
+      // Add click event listeners to each image
+      galleryImages.forEach(function(image) {
+        image.addEventListener('click', function() {
+          modal.style.display = "block"; // Show modal
+          modalImg.src = image.src; // Set the modal image source to the clicked image
+        });
+      });
+
+      // Get the close button element
+      var closeButton = document.getElementById("closeModal");
+
+      // Close the modal when the close button is clicked
+      closeButton.addEventListener('click', function() {
+        modal.style.display = "none";
+      });
+
+      // Close the modal if the user clicks anywhere outside the image
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    });
+    </script>
+  </body>
+</html>

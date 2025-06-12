@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Update Pengumuman</div>
+      </div>
+      <div class="card-body">
+        <form action="/updatePengumuman/<%= pengumuman.pengumuman_id %>" method="POST" enctype="multipart/form-data" onsubmit="return preparePengumumanSubmit()" >
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="pengumuman_file">File Pengumuman</label><br>
+                <small class="form-text text-muted">
+                  Current File: <a href="/uploads/<%= pengumuman.pengumuman_file %>" target="_blank"><%= pengumuman.pengumuman_file %></a>
+                </small><br/><br/>
+                <input
+                  type="file"
+                  class="form-control-file"
+                  id="pengumuman_file"
+                  name="pengumuman_file"
+                /><br>
+                <small style="color: gray; font-size: 0.85rem;">*Max file size: 2 MB</small></br></br>
+
+                <label for="judul">Nama Pengumuman</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="judul"
+                  name="judul"
+                  value="<%= pengumuman.judul %>"
+                  placeholder="Masukan judul pengumuman.."
+                  required
+                /><br>
+
+                <label for="tanggal">Tanggal</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="tanggal"
+                  name="tanggal"
+                  value="<%= pengumuman.tanggal %>"
+                  required
+                /><br>
+
+                <!-- Keterangan textarea -->
+                <label for="keterangan">Tentang Pengumuman</label>
+                <!-- Quill Editor -->
+                <div id="editor-pengumuman"><%- pengumuman.keterangan %></div>
+                <!-- Hidden input to store Quill content -->
+                <input type="hidden" name="keterangan" id="keteranganpengumuman" value="<%= pengumuman.keterangan %>" /></br></br>
+              
+              </div><br>
+              <div class="card-action">
+                <button type="submit" class="btn btn-success">Update</button>
+                <a 
+                  href="/pengumuman"
+                >
+                  <button class="btn btn-danger" type="button">Cancel</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

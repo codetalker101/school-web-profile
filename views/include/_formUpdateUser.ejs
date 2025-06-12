@@ -1,0 +1,81 @@
+<div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title">Form Users</div>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <form action="/updateUser/<%= user.user_id %>" method="POST">
+                            <label for="username">Username</label>
+                            <input
+                              type="text"
+                              class="form-control form-control"
+                              id="username"
+                              name="username"
+                              value="<%= user.username %>"
+                              required
+                            /></br>
+                            <label for="name">Nama</label>
+                            <input
+                              type="text"
+                              class="form-control form-control"
+                              id="name"
+                              name="name"
+                              value="<%= user.name %>"
+                              required
+                            /></br>
+                            <label for="notlp">No Tlp</label>
+                            <input
+                              type="text"
+                              class="form-control form-control"
+                              id="notlp"
+                              name="notlp"
+                              value="<%= user.notlp %>"
+                              required
+                            /></br>
+                            <label for="role">Hak Akses</label>
+                            <div style="display: flex; align-items: center;">
+                              <input
+                                type="radio"
+                                id="role-admin"
+                                name="role"
+                                value="admin"
+                                <%= user.role === 'admin' ? 'checked' : '' %>
+                                required
+                              />
+                              <label for="role-admin" style="margin-left: 8px;">Admin</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                              <input
+                                type="radio"
+                                id="role-employee"
+                                name="role"
+                                value="employee"
+                                <%= user.role === 'employee' ? 'checked' : '' %>
+                                required
+                              />
+                              <label for="role-employee" style="margin-left: 8px;">Employee</label>
+                            </div>
+
+                            <label for="largeinput">Password</label>
+                            <input
+                              type="password"
+                              class="form-control form-control"
+                              id="password"
+                              name="password"
+                              value="<%= user.password %>"
+                              required
+                            /></br>
+                            <button class="btn btn-success" type="submit">Submit</button>
+                            <a href="/users"><button class="btn btn-danger">Cancel</button></a>
+                          </form>
+                        </div></br>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+            </div>

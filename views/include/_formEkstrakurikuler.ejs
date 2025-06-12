@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Form Ekstrakurikular</div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <!-- Create form attributes -->
+              <form action="/createEkstrakurikuler" method="POST" enctype="multipart/form-data" onsubmit="return prepareEkstrakurikulerSubmit()">
+                <!-- File input -->
+                <label for="image">Foto Ekstrakurikular</label></br>
+                <input 
+                  type="file" 
+                  class="form-control-file" 
+                  id="image" 
+                  name="image" 
+                  required 
+                /></br>
+                <small style="color: gray; font-size: 0.85rem;">*Max file size: 2 MB</small></br>
+
+                <!-- Judul input -->
+                <label for="judul">Judul</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="judul"
+                  name="judul"
+                  placeholder="Masukan judul.."
+                  required
+                /></br>
+
+                <!-- Subjudul input -->
+                <label for="subjudul">Sub Judul</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="subjudul"
+                  name="subjudul"
+                  placeholder="Masukan sub judul.."
+                  required
+                /></br>
+
+                <!-- Guru selection dropdown -->
+                <label for="guru_id">Pembimbing Ekstrakurikuler</label>
+                <select
+                  class="form-control"
+                  id="guru_id"
+                  name="guru_id"
+                  required
+                >
+                  <option value="">-- Pilih Guru Pembimbing --</option>
+                  <% guruList.forEach(guru => { %>
+                    <option value="<%= guru.guru_id %>"><%= guru.nama %></option>
+                  <% }) %>
+                </select>
+                <br/>
+
+                <!-- Keterangan textarea -->
+                <label for="keterangan">Tentang Ekstrakurikuler</label>
+                <!-- Quill Editor -->
+                <div id="editor-ekstrakurikuler"></div>
+                <!-- Hidden input to store Quill content -->
+                <input type="hidden" name="keterangan" id="keteranganekstrakurikuler" /></br></br>
+
+                <!-- Submit and cancel buttons -->
+                <button class="btn btn-success" type="submit">Submit</button>
+                <button 
+                  class="btn btn-danger" 
+                  type="button" 
+                  onclick="window.history.back()"
+                >
+                  Cancel
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

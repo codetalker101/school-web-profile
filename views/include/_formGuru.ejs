@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Form Guru</div>
+      </div>
+      <div class="card-body">
+        <form action="/createGuru" method="POST" enctype="multipart/form-data" onsubmit="return prepareGuruSubmit()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="image">Foto Guru</label><br>
+                <input type="file" class="form-control-file" id="image" name="image" required><br>
+                <small style="color: gray; font-size: 0.85rem;">*Max file size: 2 MB</small></br></br>
+
+                <label for="namaGuru">Nama Guru</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nama"
+                  name="nama"
+                  placeholder="Masukan nama guru beserta gelar pendidikan.."
+                  required
+                ><br>
+
+                <label for="pendidikan">Pendidikan</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pendidikan"
+                  name="pendidikan"
+                  placeholder="Masukan gelar pendidikan guru.."
+                  required
+                ><br>
+
+                <!-- Jabatan Guru -->
+                <label for="jabatan">Jabatan Guru</label>
+                <!-- Quill Editor -->
+                <div id="editor-guru"></div>
+                <!-- Hidden input to store Quill content -->
+                <input type="hidden" name="jabatan" id="jabatanguru" /></br></br>
+              </div>
+
+              <div class="card-action">
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-danger">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,33 @@
+/* Quill Editor Container Styling */
+#editor-berita, #editor-sejarah, #editor-tentangkepsek, #editor-visimisi, #editor-programkerja,
+#editor-komitesekolah, #editor-prestasisiswa, #editor-ekstrakurikuler, #editor-pengumuman {
+  height: 500px;
+  background-color: white;
+  overflow-y: auto;
+  white-space: normal;
+  word-break: break-word;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+#editor-guru {
+  height: 100px;
+  background-color: white;
+  overflow-y: auto;
+  white-space: normal;
+  word-break: break-word;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+
+/* Make sure Quill editor content wraps long or complex lines */
+.ql-editor {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  text-align: justify !important;
+}
+

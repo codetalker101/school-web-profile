@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Form Guru</div>
+      </div>
+      <div class="card-body">
+        <form action="/updateGuru/<%= guru.guru_id %>" method="POST" enctype="multipart/form-data" onsubmit="return prepareGuruSubmit()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <!-- Display current guru image-->
+                <label for="currentImage">Current Foto Ekstrakurikular</label><br />
+                <% if (guru.guruimg) { %>
+                  <img src="/uploads/<%= guru.guruimg %>" alt="Current Image" width="150" /><br /><br />
+                <% } else { %>
+                  <p>No image available</p><br />
+                <% } %>
+
+                <label for="image">Foto Guru</label><br>
+                <input type="file" class="form-control-file" id="image" name="image" ><br>
+                <small style="color: gray; font-size: 0.85rem;">*Max file size: 2 MB</small></br></br>
+
+                <label for="namaGuru">Nama Guru</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nama"
+                  name="nama"
+                  value="<%= guru.nama %>"
+                  required
+                ><br>
+
+                <label for="pendidikan">Pendidikan</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pendidikan"
+                  name="pendidikan"
+                  value="<%= guru.pendidikan %>"
+                  required
+                ><br>
+
+                <!-- Jabatan Guru -->
+                <label for="jabatan">Jabatan Guru</label>
+                <!-- Quill Editor -->
+                <div id="editor-guru"><%- guru.jabatan %></div>
+                <!-- Hidden input to store Quill content -->
+                <input type="hidden" name="jabatan" id="jabatanguru" value="<%= guru.jabatan %>" /></br></br>
+              </div>
+
+              <div class="card-action">
+                <button type="submit" class="btn btn-success">Submit</button>
+                <a 
+                  href="/guru"
+                >
+                  <button class="btn btn-danger" type="button">Cancel</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

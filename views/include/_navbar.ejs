@@ -1,0 +1,38 @@
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <img src="/images/logoMi.png" alt="logo" style="width: 88px; height: 88px;">
+          <div class="ml-3 text-brand">
+            <div style="color: #f8eb00; font-weight: bold; line-height: 1.2; font-size: 1.1rem;">
+              MI AL IKHLAS<br>KARANGPUCUNG
+            </div>
+          </div>
+        </a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item <%= (typeof page !== 'undefined' && page === 'homeRoutes') ? 'active' : '' %>">
+              <a class="nav-link" href="/">HOME</a>
+            </li>
+            <li class="nav-item <%= (typeof page !== 'undefined' && page === 'about') ? 'active' : '' %>">
+              <a class="nav-link" href="/showSingleProfile/13">PROFILE MADRASAH</a>
+            </li>
+            <li class="nav-item <%= (typeof page !== 'undefined' && page === 'extracurricular') ? 'active' : '' %>">
+              <a class="nav-link" href="/extracurricular">EKSKUL</a>
+            </li>
+            <li class="nav-item <%= (typeof page !== 'undefined' && page === 'gallery') ? 'active' : '' %>">
+              <a class="nav-link" href="/gallery">Gallery</a>
+            </li>
+            <li class="nav-item <%= (typeof page !== 'undefined' && page === 'news') ? 'active' : '' %>">
+              <a class="nav-link" href="/news">BERITA</a>
+            </li> 
+            <li class="nav-item <%= (typeof page !== 'undefined' && page === 'contact') ? 'active' : '' %>">
+              <a class="nav-link" href="/contact">HUBUNGI KAMI</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+

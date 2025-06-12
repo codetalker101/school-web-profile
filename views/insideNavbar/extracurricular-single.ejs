@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Detail Ekstrakurikuler - MI AL IKHLAS</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="/plugins/slick/slick.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="/plugins/themify-icons/themify-icons.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="/plugins/animate/animate.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="/plugins/aos/aos.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="/plugins/venobox/venobox.css">
+
+    <!-- Main Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="fixed-top header">
+      <!-- top header -->
+
+      <!-- INCLUDE TOP HEADER -->
+      <%- include("../include/_topheader.ejs") %>  
+
+      <!-- navbar -->
+      <div class="navigation w-100">
+        <div class="container">
+
+          <!-- INCLUDE NAVBAR -->
+          <%- include("../include/_navbar.ejs") %>
+
+        </div>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <!-- Login Modal -->
+
+    <!-- INCLUDE LOGIN MODAL -->
+    <%- include("../include/_login.ejs") %>
+
+
+    <!-- page title -->
+    <section class="page-title-section overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <ul class="list-inline custom-breadcrumb">
+              <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="/extracurricular">Ekstrakurikular</a></li>
+            </ul>
+            <p class="text-lighten"><%= ekskul.judul %></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /page title -->
+
+    <!-- extracurricular details -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mb-4">
+            <!-- ekskul banner image -->
+            <img src="/uploads/<%= ekskul.ekskulimg %>" alt="<%= ekskul.judul %>" class="img-fluid w-100">
+          </div>
+        </div>
+        <!-- ekskul info -->
+        <div class="row align-items-center mb-5">
+          <div class="col-xl-3 order-1 col-sm-6 mb-4 mb-xl-0">
+            <h2><%= ekskul.judul %></h2>
+          </div>
+          <div class="col-xl-6 order-sm-3 order-xl-2 col-12 order-2">
+          </div>
+          <!-- border -->
+          <div class="col-12 mt-4 order-4">
+            <div class="border-bottom border-primary"></div>
+          </div>
+        </div>
+        <!-- course details -->
+        <div class="row">
+          <div class="col-12 mb-4">
+            <h3><%= ekskul.subjudul %></h3>
+            <p><%- ekskul.keterangan %></p>
+          </div>
+
+          <!-- teacher -->
+          <div class="col-12">
+            <h5 class="mb-3">Pengajar</h5>
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+              <div class="media mb-2 mb-sm-0">
+                <% if (ekskul.guru_nama) { %>
+                  <img class="mr-4 img-fluid" src="/uploads/<%= ekskul.guru_img %>" alt="<%= ekskul.guru_nama %>" style="width: 100px; height: 100px; object-fit: cover;">
+                  <div class="media-body">
+                    <h4 class="mt-0"><%= ekskul.guru_nama %></h4>
+                    <p><%- ekskul.guru_jabatan %></p>
+                  </div>
+                <% } else { %>
+                  <div class="media-body">
+                    <h4 class="mt-0">Pengajar belum ditentukan</h4>
+                  </div>
+                <% } %>
+              </div>
+              <div class="social-link">
+                <h6 class="d-none d-sm-block">Social Link</h6>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"><i class="ti-facebook"></i></a></li>
+                  <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"><i class="ti-twitter-alt"></i></a></li>
+                  <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"><i class="ti-linkedin"></i></a></li>
+                  <li class="list-inline-item"><a class="d-inline-block text-light p-1" href="#"><i class="ti-instagram"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="border-bottom border-primary mt-4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /extracurricular details -->
+
+    <!-- footer -->
+
+    <!-- INCLUDE FOOTER -->
+    <%- include("../include/_footer.ejs") %>
+
+    <!-- /footer -->
+
+    <!-- jQuery -->
+    <script src="/plugins/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="/plugins/slick/slick.min.js"></script>
+    <!-- aos -->
+    <script src="/plugins/aos/aos.js"></script>
+    <!-- venobox popup -->
+    <script src="/plugins/venobox/venobox.min.js"></script>
+    <!-- mixitup filter -->
+    <script src="/plugins/mixitup/mixitup.min.js"></script>
+    <!-- google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+    <script src="/plugins/google-map/gmap.js"></script>
+
+    <!-- Main Script -->
+    <script src="/js/script.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Guru - MI AL IKHLAS</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <!-- themefy-icon -->
+    <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="plugins/animate/animate.css">
+    <!-- aos -->
+    <link rel="stylesheet" href="plugins/aos/aos.css">
+    <!-- venobox popup -->
+    <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+    <!-- Main Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="fixed-top header">
+      <!-- top header -->
+
+      <!-- INCLUDE TOP HEADER -->
+      <%- include("../include/_topheader.ejs") %>
+
+      <!-- navbar -->
+      <div class="navigation w-100">
+        <div class="container">
+
+          <!-- INCLUDE NAVBAR -->
+          <%- include("../include/_navbar.ejs") %>
+
+        </div>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <!-- Login Modal -->
+
+    <!-- INCLUDE LOGIN MODAL -->
+    <%- include("../include/_login.ejs") %>
+
+
+    <!-- page title -->
+    <section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <ul class="list-inline custom-breadcrumb">
+              <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="/teacher">Direktori Guru</a></li>
+              <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+            </ul>
+            <p class="text-lighten">Data guru pengajar MI AL IKHLAS</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /page title -->
+
+    <!-- teachers -->
+    <section class="section">
+      <div class="container">
+        <% if (guruList && guruList.length > 0) { %>
+        <div class="row">
+          <% guruList.forEach(guru => { %>
+          <!-- recharch item -->
+          <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card rounded-0 hover-shadow border-top-0 border-left-0 border-right-0">
+              <img class="card-img-top rounded-0 pics-thumbnail" src="/uploads/<%= guru.guruimg %>" alt="<%= guru.nama %>">
+              <div class="card-body">
+                <h4 class="card-title"><%= guru.nama %></h4>
+                <p class="card-text"><strong>Pendidikan: </strong><%= guru.pendidikan %></p>
+                <div class="card-text show-jabatanguru"><strong>Jabatan: </strong> <%- guru.jabatan %></div>
+              </div>
+            </div>
+          </div>
+          <!-- recharch item -->
+          <% }) %>
+        </div>
+        <% } else { %>
+        <p>No guru activities found.</p>
+        <% } %>
+      </div>
+
+      <!-- pagination -->
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <nav>
+            <ul class="pagination justify-content-center">
+              <% if (currentPage > 1) { %>
+                <li class="page-item">
+                  <a class="page-link" href="?page=<%= currentPage - 1 %>">Previous</a>
+                </li>
+              <% } %>
+      
+              <% for (let i = 1; i <= totalPages; i++) { %>
+                <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                  <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+                </li>
+              <% } %>
+      
+              <% if (currentPage < totalPages) { %>
+                <li class="page-item">
+                  <a class="page-link" href="?page=<%= currentPage + 1 %>">Next</a>
+                </li>
+              <% } %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- /pagination -->
+
+    </section>
+    <!-- /teachers -->
+
+    <!-- footer -->
+
+    <!-- INCLUDE FOOTER -->
+    <%- include("../include/_footer.ejs") %>
+
+    <!-- /footer -->
+
+    <!-- jQuery -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- aos -->
+    <script src="plugins/aos/aos.js"></script>
+    <!-- venobox popup -->
+    <script src="plugins/venobox/venobox.min.js"></script>
+    <!-- mixitup filter -->
+    <script src="plugins/mixitup/mixitup.min.js"></script>
+    <!-- google map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+
+  </body>
+</html>

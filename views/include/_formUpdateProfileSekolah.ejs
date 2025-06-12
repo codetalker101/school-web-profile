@@ -1,0 +1,108 @@
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Form for updating the profile -->
+      <form 
+        action="/updateProfileSekolah/<%= profile.profile_id %>" 
+        method="POST" 
+        enctype="multipart/form-data"
+        onsubmit="return prepareProfileSekolahSubmit()"
+      >
+        <!-- Hidden input to store the profile ID -->
+        <input type="hidden" name="profileId" value="<%= profile.profile_id %>" />
+
+        <div class="form-group">
+          <label for="bannerimg"><h5>Banner Profile Madrasah</h5></label></br>
+          <input type="file" class="form-control-file" id="bannerimg" name="bannerimg" />
+          <% if (profile.bannerimg) { %>
+            <img 
+              src="/uploads/<%= profile.bannerimg %>" 
+              alt="Banner Image" 
+              class="img-thumbnail mt-2" 
+              style="width: 200px;" 
+            />
+          <% } %>
+        </div>
+
+        <div class="form-group">
+          <label for="sejarah"><h5>Sejarah Singkat Madrasah</h5></label>
+          <!-- Quill Editor -->
+          <div id="editor-sejarah"><%- profile.sejarah %></div>
+          <!-- Hidden input to store Quill content -->
+          <input type="hidden" name="sejarah" id="sejarah" value="<%= profile.sejarah %>" />
+        </div>
+
+        <div class="form-group">
+          <h5>Kepala Sekolah</h5>
+          <div class="form-group">
+            <label for="kepsekimg">Foto Kepala Madrasah</label></br>
+            <input type="file" class="form-control-file" id="kepsekimg" name="kepsekimg" />
+            <% if (profile.kepsekimg) { %>
+              <img 
+                src="/uploads/<%= profile.kepsekimg %>" 
+                alt="Kepsek Image" 
+                class="img-thumbnail mt-2" 
+                style="width: 200px;" 
+              />
+            <% } %>
+          </div>
+          <div class="form-group">
+            <label for="namakepsek">Nama Kepala Madrasah</label>
+            <input
+              type="text"
+              class="form-control"
+              id="namakepsek"
+              name="namakepsek"
+              placeholder="Masukan nama Kepala Sekolah yang sedang menjabat.."
+              value="<%= profile.namakepsek || '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="tentangkepsek">Tentang Kepala Madrasah</label>
+            <!-- Quill Editor -->
+            <div id="editor-tentangkepsek"><%- profile.tentangkepsek %></div>
+            <!-- Hidden input to store Quill content -->
+            <input type="hidden" name="tentangkepsek" id="tentangkepsek" value="<%= profile.tentangkepsek %>" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="visimisi"><h5>Visi dan Misi</h5></label>
+          <!-- Quill Editor -->
+          <div id="editor-visimisi"><%- profile.visimisi %></div>
+          <!-- Hidden input to store Quill content -->
+          <input type="hidden" name="visimisi" id="visimisi" value="<%= profile.visimisi %>" />
+        </div>
+
+        <div class="form-group">
+          <label for="programkerja">Program Kerja</label>
+          <!-- Quill Editor -->
+          <div id="editor-programkerja"><%- profile.programkerja %></div>
+          <!-- Hidden input to store Quill content -->
+          <input type="hidden" name="programkerja" id="programkerja" value="<%= profile.programkerja %>" />
+        </div>
+
+        <div class="form-group">
+          <label for="komitesekolah"><h5>Komite Madrasah</h5></label>
+          <!-- Quill Editor -->
+          <div id="editor-komitesekolah"><%- profile.komitesekolah %></div>
+          <!-- Hidden input to store Quill content -->
+          <input type="hidden" name="komitesekolah" id="komitesekolah" value="<%= profile.komitesekolah %>" />
+        </div>
+
+        <div class="form-group">
+          <label for="prestasisiswa"><h5>Prestasi Siswa</h5></label>
+          <!-- Quill Editor -->
+          <div id="editor-prestasisiswa"><%- profile.prestasisiswa %></div>
+          <!-- Hidden input to store Quill content -->
+          <input type="hidden" name="prestasisiswa" id="prestasisiswa" value="<%= profile.prestasisiswa %>" />
+        </div>
+
+        <div class="card-action">
+          <button type="submit" class="btn btn-success">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
