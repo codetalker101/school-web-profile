@@ -48,7 +48,7 @@ exports.showLatestItems = async (req, res) => {
     res.render("index", {
       page: "showLatestItems",
       beritaList: formattedBeritaList,
-      galleryList: galleryList
+      galleryList: galleryList,
     });
   } catch (error) {
     console.error("Terjadi kesalahan saat mengambil berita atau galeri:", error);
