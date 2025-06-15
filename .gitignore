@@ -2,3 +2,4 @@ node_modules
 session.vim
 backup.sql
 config.env
+backup.sql
