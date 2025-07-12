@@ -19,11 +19,12 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
-  },
-  pool.connect()
-  .then(() => console.log("✅ Connected to PostgreSQL database on Railway"))
-  .catch(err => console.error("❌ Could not connect to PostgreSQL:", err));
+  }
 });
+
+pool.connect()
+.then(() => console.log("✅ Connected to PostgreSQL database on Railway"))
+.catch(err => console.error("❌ Could not connect to PostgreSQL:", err));
 
 
 module.exports = pool;
