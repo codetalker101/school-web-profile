@@ -51,7 +51,7 @@ app.set("view engine", "ejs");
 dotenv.config({ path: 'config.env' });
 
 // listening to port
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
   console.log(`Server connected to port ${PORT}`)
